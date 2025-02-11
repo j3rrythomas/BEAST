@@ -292,7 +292,8 @@ class ChatFormat():
         
         self.name = name.split('/')[-1]
         
-        if "vicuna" in name.lower():
+        if "vicuna" in name.lower() or "llama" in name.lower():
+            #Jerry: Add support for llama
             self.system = ["", \
                 "A chat between a curious user and an artificial intelligence assistant. " \
                 "The assistant gives helpful, detailed, and polite answers to the user's questions. ", \
@@ -312,7 +313,8 @@ class ChatFormat():
         system = "{}{}{}".format(*self.system) if (self.system[1] != "") else ""
         x = copy.deepcopy(sens)
         for i in range(len(x)):
-            if "vicuna" in self.name.lower():
+            if "vicuna" in self.name.lower() or "llama" in self.name.lower():
+                #Jerry: Add support for llama
                 x[i] = "{}{}{}{}{}".format(self.sep[0], system, self.user[0], x[i].strip(" "), self.assistant[0])
             elif "mistral" in self.name.lower():
                 x[i] = "{}{}{}{}{}".format(self.sep[0], self.user[0], system, x[i].strip(" "), self.user[1])
@@ -323,7 +325,8 @@ class ChatFormat():
         x = copy.deepcopy(sens)
         for i in range(len(x)):
             x[i] = x[i].split(self.user[0])[1]                
-            if "vicuna" in self.name.lower():
+            if "vicuna" in self.name.lower() or "llama" in self.name.lower():
+                #Jerry: Add support for llama
                 x[i] = x[i].split(self.assistant[0])[0].strip()
             elif "mistral" in self.name.lower():
                 if system != "":

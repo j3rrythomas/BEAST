@@ -51,6 +51,9 @@ def get_model(name):
         ar.model.generation_config.temperature = 0.6
         ar.model.generation_config.top_p = 0.9
         ar.model.generation_config.do_sample = True
+    if "llama" in name[0].lower():
+        #Jerry: Fix for llama batch inference
+        ar.model = ar.model.bfloat16()
     ar.tokenizer.padding_side = 'left'
     return ar
 
