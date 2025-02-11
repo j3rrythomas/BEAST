@@ -47,6 +47,9 @@ elif 'vicuna13b' in args.model.lower():
     name = ['vicuna13b', 'lmsys/vicuna-13b-v1.5']
 elif 'mistral' in args.model.lower():
     name = ['mistral', 'mistralai/Mistral-7B-Instruct-v0.2']
+#Jerry: Add support for llama
+elif 'llama' in args.model.lower():
+    name = ['llama', 'meta-llama/Llama-2-7b-chat-hf']
     
 ar = AutoRegressor(name[1], budget=args.budget)
 

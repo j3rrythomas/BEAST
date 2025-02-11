@@ -40,7 +40,8 @@ prefixes = [
 
 files = {'vicuna': "lmsys/vicuna-7b-v1.5", \
         'mistral': "mistralai/Mistral-7B-Instruct-v0.2", \
-        'vicuna13b': "lmsys/vicuna-13b-v1.5"}
+        'vicuna13b': "lmsys/vicuna-13b-v1.5", \
+        'llama': 'meta-llama/Llama-2-7b-chat-hf'   } #Jerry: Support for llama
 
 
 @torch.no_grad()
